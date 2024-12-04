@@ -19,29 +19,20 @@ public:
     int capacity;
     Car storage[10];
     Warehouse(int space)      //constructor with set Capacity
+
     {
         //storage[3] = 12;
     }
 
-    int parkingspace(Car spot, Warehouse building)
+    int getValue(int index, int parking)
     {
-        int toggel = 0;
-        Car Car_Holder;
-
-        for(int x = 0; toggel == 1; x++)
+    std::cout << "\nseeing if car is at space " << index;
+        if(index == parking)
         {
-            Car_Holder = building.storage[x];
-
-            if(spot == Car_Holder)
-            {
-            }
+            return 1;
+        }
 
     }
-
-    //int getValue(int index)
-    //{
-        //storage[index].value;
-    //}
 };
 
 
@@ -59,7 +50,7 @@ int main(int argc, char *argv[])
 
     // If you do not need a running Qt event loop, remove the call
     // to a.exec() or use the Non-Qt Plain C++ Application template.
-    int parking = 0;
+    int parking = 1, found = 0, search = 1;
     Car Levon_car;                      // object car
     Warehouse Parkplatzt_luzern (35);   // Fixed object Warehouse
 
@@ -67,10 +58,20 @@ int main(int argc, char *argv[])
     Levon_car.top_speed = 35;
     Levon_car.value = 25;
 
-    Parkplatzt_luzern.storage[1] = Levon_car;
-    parking = Parkplatzt_luzern.parkingspace(Levon_car,Parkplatzt_luzern);
+    Parkplatzt_luzern.storage[parking] = Levon_car;
 
+
+    std::cout << "your car is parked at space " <<parking;
+    found = Parkplatzt_luzern.getValue(search, parking);
+    if(found == 1)
+    {
+        std::cout<< "\nyour car was found at parking space " <<search <<"";
+    }
+    else
+    {
+        std::cout<<"\nyour car was not found at parking space "<< search <<"\n";
+    }
 
     return 0;
-}
+
 };
