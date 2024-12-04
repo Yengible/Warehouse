@@ -17,11 +17,31 @@ class Warehouse
 {
 public:
     int capacity;
-    int storage[10];
+    Car storage[10];
     Warehouse(int space)      //constructor with set Capacity
     {
-        storage[3] = 12;
+        //storage[3] = 12;
     }
+
+    int parkingspace(Car spot, Warehouse building)
+    {
+        int toggel = 0;
+        Car Car_Holder;
+
+        for(int x = 0; toggel == 1; x++)
+        {
+            Car_Holder = building.storage[x];
+
+            if(spot == Car_Holder)
+            {
+            }
+
+    }
+
+    //int getValue(int index)
+    //{
+        //storage[index].value;
+    //}
 };
 
 
@@ -39,7 +59,7 @@ int main(int argc, char *argv[])
 
     // If you do not need a running Qt event loop, remove the call
     // to a.exec() or use the Non-Qt Plain C++ Application template.
-
+    int parking = 0;
     Car Levon_car;                      // object car
     Warehouse Parkplatzt_luzern (35);   // Fixed object Warehouse
 
@@ -47,9 +67,10 @@ int main(int argc, char *argv[])
     Levon_car.top_speed = 35;
     Levon_car.value = 25;
 
-
-    Parkplatzt_luzern.storage[1] == 12;
+    Parkplatzt_luzern.storage[1] = Levon_car;
+    parking = Parkplatzt_luzern.parkingspace(Levon_car,Parkplatzt_luzern);
 
 
     return 0;
 }
+};
