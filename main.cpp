@@ -33,6 +33,10 @@ public:
         }
 
     }
+
+
+
+
 };
 
 
@@ -50,7 +54,7 @@ int main(int argc, char *argv[])
 
     // If you do not need a running Qt event loop, remove the call
     // to a.exec() or use the Non-Qt Plain C++ Application template.
-    int parking = 1, found = 0, search = 1;
+    int parking = 1, found = 0, search = 1, toggel = 0, space = 10;
     Car Levon_car;                      // object car
     Warehouse Parkplatzt_luzern (35);   // Fixed object Warehouse
 
@@ -59,18 +63,27 @@ int main(int argc, char *argv[])
     Levon_car.value = 25;
 
     Parkplatzt_luzern.storage[parking] = Levon_car;
+    std::cout << "\n your car has entered the Parkplatzt";
+    toggel = 1;
 
+    if (toggel == 1)        // this it used to count the cars and say the space
+    {
+        space--;
+        toggel = 0;
+    }
 
     std::cout << "your car is parked at space " <<parking;
     found = Parkplatzt_luzern.getValue(search, parking);
     if(found == 1)
     {
-        std::cout<< "\nyour car was found at parking space " <<search <<"";
+        std::cout<< "\nyour car was found at parking space " <<search;
     }
     else
     {
-        std::cout<<"\nyour car was not found at parking space "<< search <<"\n";
+        std::cout<<"\nyour car was not found at parking space "<< search;
     }
+
+    std::cout << "\nthere are " << space <<" parking spots left";
 
     return 0;
 
