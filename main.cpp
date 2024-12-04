@@ -1,7 +1,6 @@
 #include <QCoreApplication>
 #include <QDebug>
-#include <stdio.h>
-#include <stdint.h>
+
 #include <iostream>
 #include <string>
 
@@ -9,35 +8,51 @@
 class Car
 {
 public:
-    int value, capacity, top_speed;
+    int value, capacity, power_HP;
+    std::string registration, colour;
+    Car();
+    Car(int worth, int cap, int HP, std::string regi, std::string farbe)
+    {
+        value = worth;
+        capacity = cap;
+        power_HP = HP;
+        registration = regi;
+        colour = farbe;
+    }
+
+
 };
 
 
 class Warehouse
 {
+
 public:
     int capacity;
+
     Car storage[10];
-    Warehouse(int space)      //constructor with set Capacity
 
-    {
-        //storage[3] = 12;
-    }
+    Warehouse();
 
-    int getValue(int index, int parking)
+    int getValue(int index, int parking)            // step 2, getting the car
     {
-    std::cout << "\nseeing if car is at space " << index;
+        std::cout << "\nseeing if car is at space " << index;
         if(index == parking)
         {
             return 1;
         }
 
+        return 0;
     }
 
 
 
 
 };
+
+Warehouse::Warehouse()
+{
+}
 
 
 int main(int argc, char *argv[])
@@ -55,12 +70,11 @@ int main(int argc, char *argv[])
     // If you do not need a running Qt event loop, remove the call
     // to a.exec() or use the Non-Qt Plain C++ Application template.
     int parking = 1, found = 0, search = 1, toggel = 0, space = 10;
-    Car Levon_car;                      // object car
-    Warehouse Parkplatzt_luzern (35);   // Fixed object Warehouse
 
-    Levon_car.capacity = 4;
-    Levon_car.top_speed = 35;
-    Levon_car.value = 25;
+    Car Levon_car (3000,6,78,"12edyerv1","red");                      // object car
+    Warehouse Parkplatzt_luzern;   // Fixed object Warehouse
+
+    Parkplatzt_luzern.capacity = 35;
 
     Parkplatzt_luzern.storage[parking] = Levon_car;
     std::cout << "\n your car has entered the Parkplatzt";
