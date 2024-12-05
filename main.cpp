@@ -1,58 +1,12 @@
 #include <QCoreApplication>
 #include <QDebug>
-
+#include "car.h"
+#include "warehouse.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 
-class Car
-{
-public:
-    int value, capacity, power_HP;
-    std::string registration, colour;
-    Car();
-    Car(int worth, int cap, int HP, std::string regi, std::string farbe)
-    {
-        value = worth;
-        capacity = cap;
-        power_HP = HP;
-        registration = regi;
-        colour = farbe;
-    }
-
-
-};
-
-
-class Warehouse
-{
-
-public:
-    int capacity;
-
-    Car storage[10];
-
-    Warehouse();
-
-    int getValue(int index, int parking)            // step 2, getting the car
-    {
-        std::cout << "\nseeing if car is at space " << index;
-        if(index == parking)
-        {
-            return 1;
-        }
-
-        return 0;
-    }
-
-
-
-
-};
-
-Warehouse::Warehouse()
-{
-}
 
 
 int main(int argc, char *argv[])
@@ -76,7 +30,7 @@ int main(int argc, char *argv[])
 
     Parkplatzt_luzern.capacity = 35;
 
-    Parkplatzt_luzern.storage[parking] = Levon_car;
+    Parkplatzt_luzern.storage.push_back(Levon_car);
     std::cout << "\n your car has entered the Parkplatzt";
     toggel = 1;
 

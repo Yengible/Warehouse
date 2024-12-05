@@ -14,6 +14,8 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 add_executable(warehouse
   main.cpp
+  car.h car.cpp
+  warehouse.h warehouse.cpp
 )
 target_link_libraries(warehouse Qt${QT_VERSION_MAJOR}::Core)
 
